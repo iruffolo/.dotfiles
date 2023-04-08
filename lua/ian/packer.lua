@@ -1,4 +1,4 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('plugins')` from ywur init.vim
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -80,8 +80,16 @@ return require('packer').startup(function(use)
       end
   }
 
-  use("eandrju/cellular-automaton.nvim")
   --  use("github/copilot.vim")
   --  use("laytan/cloak.nvim")
+  use("eandrju/cellular-automaton.nvim")
+
+  -- -- install without yarn or npm
+  use({
+          "iamcco/markdown-preview.nvim",
+          run = function() vim.fn["mkdp#util#install"]() end,
+          ft = {'markdown'},
+          -- setup = function () vim.g.mkdp_auto_start = 1 end,
+      })
 
 end)
