@@ -13,12 +13,14 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- Color schemes 
   use({ 'rose-pine/neovim',
 	  as = 'rose-pine' ,
 	  config = function ()
 		  vim.cmd('colorscheme rose-pine')
 	  end
   })
+  use 'folke/tokyonight.nvim'
 
   use {
 	  'nvim-treesitter/nvim-treesitter',
@@ -91,5 +93,7 @@ return require('packer').startup(function(use)
           ft = {'markdown'},
           -- setup = function () vim.g.mkdp_auto_start = 1 end,
       })
+
+  use("ThePrimeagen/vim-be-good")
 
 end)
