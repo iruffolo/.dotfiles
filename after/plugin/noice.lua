@@ -196,3 +196,4 @@ require("noice").setup({
   ---@type NoiceFormatOptions
   format = {}, --- @see section on formatting
 }
+)
