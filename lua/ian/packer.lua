@@ -103,8 +103,8 @@ return require('packer').startup(function(use)
   -- -- install without yarn or npm
   use({
           "iamcco/markdown-preview.nvim",
-          run = function() vim.fn["mkdp#util#install"]() end,
-          ft = {'markdown'},
+          run = function() vim.fn["mkdp#util#install"]() end
+          -- ft = {'markdown'},
           -- setup = function () vim.g.mkdp_auto_start = 1 end,
       })
 
@@ -127,5 +127,6 @@ return require('packer').startup(function(use)
       }
   })
 
+  use("aklt/plantuml-syntax")
 
 end)
