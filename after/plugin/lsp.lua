@@ -26,6 +26,24 @@ require("nvim-lsp-installer").setup({
     }
 })
 
+require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
+
+-- local lspconfig = require "lspconfig"
+-- lspconfig.arduino_language_server.setup {
+--     cmd = {
+--         "arduino-language-server",
+--         "-cli-config",
+--         "~/.arduino15/arduino-cli.yaml",
+--         "-cli",
+--         "arduino-cli",
+--         "-clangd",
+--         "clangd",
+--         "-fqbn",
+--         "arduino:avr:uno",
+--     },
+--     filetypes = { "arduino", "ino" },
+-- }
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {'tsserver', 'rust_analyzer', 'pylsp', 'clangd'},
