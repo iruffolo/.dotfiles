@@ -1,15 +1,11 @@
-# Install Instructions
+## wpdated To Lazy based on [kickstart nvim](https://github.com/nvim-lua/kickstart.nvim)
 
-1. Install Packer from [AUR](https://aur.archlinux.org/packages/nvim-packer-git)
+## Install Instructions
 
-    `yay -S nvim-packer-git`
-
-2. Open nvim, there will be errors from packages not found. Install packages with:
-
-    `:PackerSync`
-
-3. Install a nerd font and set to system mono space font (in gnome tweaks or fonts).
+1. Install a nerd font and set to system mono space font (in gnome tweaks or fonts).
 This is required for icons in telescope.
 
     `pacman -S ttf-hack-nerd`
+
+2. Lazy should handle the rest.
 
