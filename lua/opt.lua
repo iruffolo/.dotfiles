@@ -9,6 +9,9 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- Set python3 path
+vim.g.python3_host_prog = '/usr/bin/python'
+
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = false
 

@@ -51,6 +51,7 @@ require('lazy').setup({
   'ThePrimeagen/vim-be-good',
   'aklt/plantuml-syntax',
   'github/copilot.vim',
+  'nvim-tree/nvim-web-devicons',
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
