@@ -46,7 +46,11 @@ require('lazy').setup({
   require 'plugins.kickstart.indent_line',
 
   -- Import all plugins from custom dir
-  { import = 'plugins.custom' },
+  require 'plugins.custom.harpoon',
+  require 'plugins.custom.lualine',
+  require 'plugins.custom.markdownpreview',
+  -- require 'plugins.custom.noice',
+  require 'plugins.custom.trouble',
 
   'ThePrimeagen/vim-be-good',
   'aklt/plantuml-syntax',
