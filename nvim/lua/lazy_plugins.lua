@@ -52,6 +52,7 @@ require('lazy').setup({
   -- require 'plugins.custom.noice',
   require 'plugins.custom.trouble',
   require 'plugins.custom.tmuxnav',
+  require 'plugins.custom.precognition',
 
   'ThePrimeagen/vim-be-good',
   'aklt/plantuml-syntax',
