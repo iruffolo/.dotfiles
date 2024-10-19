@@ -27,13 +27,8 @@
             "default": ""
         }
     },
-    "custom/separator": {
-        "format": "|",
-        "interval": "once",
-        "tooltip": false
-    },
     "custom/exit": {
-        "format": "",
+        "format": "  ",
         "on-click": "wlogout",
         "tooltip-format": "Power Menu"
     },
@@ -110,7 +105,7 @@
         "car": "",
         "default": ["", "", ""]
       },
-      "on-click": "pavucontrol"
+      "on-click": "bash ~/dev/config/scripts/pavucontrol.sh"
     },
     "mpd": {
       "format": "{stateIcon} {artist} - {title}",
@@ -146,5 +141,31 @@
             "cpu",
             "memory"
         ]
+    },
+
+    // modules for padding //
+
+    "custom/l_end": {
+        "format": " ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+    "custom/r_end": {
+        "format": " ",
+        "interval" : "once",
+        "tooltip": false
+    },
+
+    "custom/padd": {
+        "format": "  ",
+        "intwrval" : "once",
+        "tooltip": false
+    },
+
+    "custom/separator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
     }
 }

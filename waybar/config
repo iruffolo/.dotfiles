@@ -11,29 +11,39 @@
 
     // Choose the order of the modules
     "modules-left": [
-        "custom/separator",
+        "custom/padd",
+        "custom/l_end",
         "custom/applauncher",
-        "custom/wmname",
+        "custom/separator",
         "group/hardware",
+        "custom/separator",
         "idle_inhibitor",
+        "custom/r_end",
+        "custom/padd"
         ],
 
     "modules-center": [
+        "custom/padd",
+        "custom/l_end",
         "tray",
         "hyprland/workspaces",
-        "mpd"
+        "mpd",
+        "custom/r_end",
+        "custom/padd"
         ],
 
     "modules-right": [
         // "idle_inhibitor",
+        "custom/padd",
+        "custom/l_end",
         "network", 
         "custom/separator",
         "pulseaudio",
         "custom/separator",
-        "temperature",
-        "custom/separator",
         "clock",
+        "custom/separator",
         "custom/exit",
-        "custom/separator"
+        "custom/r_end",
+        "custom/padd"
     ]
 }
