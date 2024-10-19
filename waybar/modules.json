@@ -1,0 +1,150 @@
+{
+    // Modules configuration
+    "custom/applauncher": {
+        "format": "Apps",
+        "on-click": "bash ~/dev/config/scripts/wofi-startup.sh mocha",
+        "tooltip": true,
+        "tooltip-format": "App Launcher"
+    },
+    "custom/wmname": {
+        "format": "",
+        "tooltip": true,
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            // "7": "",
+            // "8": "",
+            // "9": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "custom/separator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/exit": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip-format": "Power Menu"
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 6
+    },
+    "clock": {
+        "interval": 1,
+        "locale": "C", 
+        "format": " {:%I:%M %p}",
+        "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
+    },
+    "cpu": {
+        "format": " : {usage}%",
+        "on-click": "kitty -e 'htop'"
+    },
+    "memory": {
+        "interval": 30,
+        "format": " : {used:0.2f}GB",
+        "max-length": 10,
+        "warning": 70,
+        "critical": 90,
+        "on-click": "kitty -e 'htop'"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{icon}&#8239;{temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": " ;({signalStrength}%)",
+        "format-ethernet": " : {ipaddr}/{cidr}",
+        "format-linked": "Linked (No IP)",
+        "format-disconnected": "✈ Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ipaddr}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "pulseaudio": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "{icon} {volume}% {format_source}",
+      "format-bluetooth": "{icon} {volume}% {format_source}",
+      "format-bluetooth-muted": " {format_source}",
+      "format-muted": "  {format_source}",
+      "format-source": " {volume}%",
+      "format-source-muted": "",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "🎧",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol"
+    },
+    "mpd": {
+      "format": "{stateIcon} {artist} - {title}",
+      "format-disconnected": "🎶",
+      "format-stopped": "♪",
+      "interval": 10,
+      "consume-icons": {
+        "on": " " // Icon shows only when "consume" is on
+      },
+      "random-icons": {
+        "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+        "on": " "
+      },
+      "repeat-icons": {
+        "on": " "
+      },
+      "single-icons": {
+        "on": "1 "
+      },
+      "state-icons": {
+        "paused": "",
+        "playing": ""
+      },
+      "tooltip-format": "MPD (connected)",
+      "tooltip-format-disconnected": "MPD (disconnected)",
+      "max-length": 45
+    },
+
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "temperature",
+            "cpu",
+            "memory"
+        ]
+    }
+}

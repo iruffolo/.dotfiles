@@ -1,0 +1,39 @@
+{
+    // General Position Settings
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "width": 1400,
+    "margin": "3, 0, 2, 0",
+
+    // Load modules from another file
+    "include" : ["~/.config/waybar/modules.json"],
+
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/separator",
+        "custom/applauncher",
+        "custom/wmname",
+        "group/hardware",
+        "idle_inhibitor",
+        ],
+
+    "modules-center": [
+        "tray",
+        "hyprland/workspaces",
+        "mpd"
+        ],
+
+    "modules-right": [
+        // "idle_inhibitor",
+        "network", 
+        "custom/separator",
+        "pulseaudio",
+        "custom/separator",
+        "temperature",
+        "custom/separator",
+        "clock",
+        "custom/exit",
+        "custom/separator"
+    ]
+}
