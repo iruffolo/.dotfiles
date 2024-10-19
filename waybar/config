@@ -25,7 +25,6 @@
     "modules-center": [
         "custom/padd",
         "custom/l_end",
-        "tray",
         "hyprland/workspaces",
         "mpd",
         "custom/r_end",
