@@ -15,6 +15,8 @@
 
 - [ ] Fix Wlogout (looks terrible on ultrawide)
 - [ ] Pywal integration with waybar theme
+- [ ] Swaync notification config 
+- [ ] mpd with waybar 
 
 # Progress
 - [x] Hyprland
