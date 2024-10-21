@@ -9,4 +9,6 @@ wal -i $wp
 # Reload apps using pywal colorschemes
 source ~/.dotfiles/scripts/waybar-startup.sh
 
+# Replace background in hyprpaper and hyprlock with new image
 sed -i "s#/home/ian/Pictures/backgrounds/.*.jpg#$wp#g" ~/.dotfiles/.config/hypr/hyprpaper.conf
+sed -i "s#/home/ian/Pictures/backgrounds/.*.jpg#$wp#g" ~/.dotfiles/.config/hypr/hyprlock.conf
