@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-STYLEDIR="$HOME/dev/config/wofi/styles/"
+STYLEDIR="$HOME/.dotfiles/.config/wofi/styles/"
 
 if [[ ! $(pidof wofi) ]]; then
     if [ -z "$1" ]; then

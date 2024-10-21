@@ -1,0 +1,14 @@
+# README Files
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# Git
+\.git
+\.gitignore
+\.gitmodules
+
+# Scripts
+\.scripts
+
+

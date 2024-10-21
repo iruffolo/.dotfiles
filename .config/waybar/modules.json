@@ -2,13 +2,13 @@
     // Modules configuration
     "custom/applauncher": {
         "format": "Apps",
-        "on-click": "bash ~/dev/config/scripts/wofi-startup.sh mocha",
+        "on-click": "bash ~/.dotfiles/scripts/wofi-startup.sh mocha",
         "tooltip": true,
         "tooltip-format": "App Launcher"
     },
     "custom/keymapp": {
         "format": "",
-        "on-click": "bash ~/dev/config/scripts/keymapp.sh",
+        "on-click": "bash ~/.dotfiles/scripts/keymapp.sh",
         "tooltip": true,
         "tooltip-format": "Voyager Keyboard"
     },
@@ -35,7 +35,7 @@
     },
     "custom/exit": {
         "format": "  ",
-        "on-click": "bash ~/dev/config/scripts/wlogout.sh",
+        "on-click": "bash ~/.dotfiles/scripts/wlogout.sh",
         "tooltip-format": "Power Menu"
     },
     "sway/mode": {
@@ -111,7 +111,7 @@
         "car": "",
         "default": ["", "", ""]
       },
-      "on-click": "bash ~/dev/config/scripts/pavucontrol.sh"
+      "on-click": "bash ~/.dotfiles/scripts/pavucontrol.sh"
     },
     "mpd": {
       "format": "{stateIcon} {artist} - {title}",
