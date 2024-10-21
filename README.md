@@ -6,6 +6,7 @@
 - waybar
 - wofi
 - wlogout
+- waypaper
 
 # Dependencies 
 - [Pywal](https://github.com/dylanaraps/pywal)
@@ -17,10 +18,8 @@
 
 # TODO
 
-- [ ] Pywal integration with waybar theme
 - [ ] Swaync notification config 
 - [ ] mpd with waybar 
-- [ ] glitchy behavior switching wallpapers w/ pywal and then new login
 
 # Progress
 - [x] Hyprland
@@ -28,6 +27,7 @@
 - [X] Wofi
 - [x] Waybar
 - [x] Wlogout
+- [x] Waypaper
 
 # Install 
 ## Manual with Symlinks
