@@ -7,6 +7,9 @@
 - wofi
 - wlogout
 
+# Dependencies 
+- [Pywal](https://github.com/dylanaraps/pywal)
+
 ### Hyprland
 - hyprpaper
 - hypridle
@@ -17,7 +20,6 @@
 - [ ] Pywal integration with waybar theme
 - [ ] Swaync notification config 
 - [ ] mpd with waybar 
-- [ ] manage sym links with GNU Stow
 
 # Progress
 - [x] Hyprland
@@ -26,10 +28,27 @@
 - [x] Waybar
 - [x] Wlogout
 
-# Install manually with links
-
-E.g:
-
+# Install 
+## Manual with Symlinks
+E.g
 ~~~
-ln -s ~/dev/config/.tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 ~~~
+
+## Recommended Install 
+Using GNU Stow:
+1. Clone repo directly into home directory e.g ~/.dotfiles
+2. Run Stow:
+~~~
+cd ~/.dotfiles
+stow .
+~~~
+
+## Uninstall
+To remove links managed by stow:
+~~~
+cd ~/.dotfiles
+stow -D .
+~~~
+
+
