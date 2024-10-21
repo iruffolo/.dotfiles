@@ -20,6 +20,7 @@
 - [ ] Pywal integration with waybar theme
 - [ ] Swaync notification config 
 - [ ] mpd with waybar 
+- [ ] glitchy behavior switching wallpapers w/ pywal and then new login
 
 # Progress
 - [x] Hyprland

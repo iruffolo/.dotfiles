@@ -1,21 +1,5 @@
 {
     // Modules configuration
-    "custom/applauncher": {
-        "format": "Apps",
-        "on-click": "bash ~/.dotfiles/scripts/wofi-startup.sh mocha",
-        "tooltip": true,
-        "tooltip-format": "App Launcher"
-    },
-    "custom/keymapp": {
-        "format": "",
-        "on-click": "bash ~/.dotfiles/scripts/keymapp.sh",
-        "tooltip": true,
-        "tooltip-format": "Voyager Keyboard"
-    },
-    "custom/wmname": {
-        "format": "",
-        "tooltip": true,
-    },
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -33,20 +17,28 @@
             "default": ""
         }
     },
+    "custom/waypaper": {
+        "format": "",
+        "on-click": "bash ~/.dotfiles/scripts/waypaper.sh &",
+        "tooltip": true,
+        "tooltip-format": "Waypaper"
+    },
+    "custom/applauncher": {
+        "format": "Apps",
+        "on-click": "bash ~/.dotfiles/scripts/wofi-startup.sh mocha",
+        "tooltip": true,
+        "tooltip-format": "App Launcher"
+    },
+    "custom/keymapp": {
+        "format": "",
+        "on-click": "bash ~/.dotfiles/scripts/keymapp.sh",
+        "tooltip": true,
+        "tooltip-format": "Voyager Keyboard"
+    },
     "custom/exit": {
         "format": "  ",
         "on-click": "bash ~/.dotfiles/scripts/wlogout.sh",
         "tooltip-format": "Power Menu"
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
     },
     "tray": {
         "icon-size": 20,

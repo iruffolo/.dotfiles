@@ -23,4 +23,7 @@ bot=$(awk "BEGIN {printf \"%.0f\", $B_1080 / $scale}")
 left=$(awk "BEGIN {printf \"%.0f\", $L_1080 / $scale}") 
 right=$(awk "BEGIN {printf \"%.0f\", $R_1080 / $scale}") 
 
+# Make sure to refresh colorscheme
+source ~/.dotfiles/scripts/refresh-colors.sh
+
 wlogout -T $top -B $bot -L $left -R $right &

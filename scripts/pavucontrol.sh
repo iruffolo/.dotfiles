@@ -3,5 +3,5 @@
 if [[ ! $(pidof pavucontrol) ]]; then
     pavucontrol
 else
-    pkill pavucontrol 
+    pkill pavucontrol
 fi
