@@ -1,14 +1,29 @@
-# README Files
-^/README.*
-^/LICENSE.*
-^/COPYING
+# From Stow default ignore:
 
-# Git
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
 \.git
 \.gitignore
 \.gitmodules
 
-# Scripts
-\.scripts
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
 
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# End Stow defaults
+
+# Scripts
+scripts
 
