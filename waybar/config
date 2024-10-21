@@ -35,6 +35,8 @@
         // "idle_inhibitor",
         "custom/padd",
         "custom/l_end",
+        "custom/keymapp",
+        "custom/separator",
         "network", 
         "custom/separator",
         "pulseaudio",

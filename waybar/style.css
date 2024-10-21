@@ -7,7 +7,10 @@
     min-height: 10px;
 }
 
-@import "theme.css";
+/* @import "theme.css"; */
+
+/* No relative path because this can be called from another script */
+@import "/home/ian/.cache/wal/colors-waybar.css";
 
 window#waybar {
     background: @bar-bg;
@@ -83,6 +86,7 @@ tooltip {
 
 #custom-separator,
 #custom-applauncher,
+#custom-keymapp,
 #temperature,
 #cpu,
 #memory,
@@ -101,8 +105,8 @@ tooltip {
 #workspaces,
 #custom-l_end,
 #custom-r_end {
-    color: @main-fg;
-    background: @main-bg;
+    color: @color1;
+    background: @color0;
     opacity: 1;
     margin: 4px 0px 4px 0px;
     padding-left: 4px;
@@ -114,30 +118,30 @@ tooltip {
 #memory,
 #temperature,
 #cpu {
-    color: @hwcolor;
+    color: @color1;
 }
 
 #custom-separator {
-    color: @gray1;
+    color: @color2;
 }
 
 #network {
-    color: @orange;
+    color: @color3;
 }
 
 #network.disconnected {
-    color: @alert;
+    color: @color5;
 }
 
 #pulseaudio {
-    color: @purple;
+    color: @color4;
 }
 #pulseaudio.muted {
-    color: @gray2;
+    color: @color5;
 }
 
 #clock {
-    color: @green;
+    color: @color6;
 }
 
 #workspaces,

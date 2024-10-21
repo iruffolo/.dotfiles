@@ -6,6 +6,12 @@
         "tooltip": true,
         "tooltip-format": "App Launcher"
     },
+    "custom/keymapp": {
+        "format": "",
+        "on-click": "bash ~/dev/config/scripts/keymapp.sh",
+        "tooltip": true,
+        "tooltip-format": "Voyager Keyboard"
+    },
     "custom/wmname": {
         "format": "",
         "tooltip": true,
@@ -29,7 +35,7 @@
     },
     "custom/exit": {
         "format": "  ",
-        "on-click": "wlogout",
+        "on-click": "bash ~/dev/config/scripts/wlogout.sh",
         "tooltip-format": "Power Menu"
     },
     "sway/mode": {
