@@ -7,13 +7,12 @@
     min-height: 10px;
 }
 
-/* @import "theme.css"; */
-
 /* No relative path because this can be called from another script */
 @import "/home/ian/.cache/wal/colors-waybar.css";
 
 window#waybar {
-    background: @bar-bg;
+    /* Transparent background bar for floating modules */
+    background: rgba(0, 0, 0, 0);
 }
 
 tooltip {
@@ -24,8 +23,8 @@ tooltip {
 }
 
 #workspaces button.active {
-    background: @wb-act-bg;
-    color: @wb-act-fg;
+    background: @color1;
+    color: @color2;
     border-radius: 9px;
     padding-left: 24px;
     padding-right: 24px;
@@ -36,8 +35,8 @@ tooltip {
 }
 
 #workspaces button:hover {
-    background: @wb-hvr-bg;
-    color: @wb-hvr-fg;
+    background: @color3;
+    color: @color4;
     border-radius: 9px;
     animation: ws_hover 20s ease-in-out 1;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
@@ -54,7 +53,7 @@ tooltip {
     padding-left: 3px;
     padding-right: 3px;
     margin-right: 0px;
-    color: @wb-color;
+    color: @color2;
     animation: tb_normal 20s ease-in-out 1;
 }
 
@@ -106,8 +105,8 @@ tooltip {
 #workspaces,
 #custom-l_end,
 #custom-r_end {
-    color: @color1;
-    background: @color0;
+    background: @background;
+    color: @foreground;
     opacity: 1;
     margin: 4px 0px 4px 0px;
     padding-left: 4px;

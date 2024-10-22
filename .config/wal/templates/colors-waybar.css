@@ -1,16 +1,5 @@
-@define-color bar-bg rgba(0, 0, 0, 0);
-
-@define-color main-bg #{color0.strip};
-@define-color main-fg #{foreground.strip};
-@define-color wb-act-bg #{color1.strip};
-@define-color wb-act-fg #{color2.strip};
-@define-color wb-hvr-bg #{color3.strip};
-@define-color wb-hvr-fg #{color4.strip};
-@define-color hwcolor #{color5.strip};
-@define-color separator #{color6.strip};
-@define-color network #{color7.strip};
-@define-color audio #{color8.strip};
-@define-color clock #{color9.strip};
+@define-color background #{color0.strip};
+@define-color foreground #{foreground.strip};
 
 @define-color color0 #{color0.strip};
 @define-color color1 #{color1.strip};
