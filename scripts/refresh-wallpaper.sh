@@ -4,7 +4,7 @@
 wp="$(hyprctl hyprpaper listloaded)"
 
 # Refresh pywal colors
-wal -i $wp
+wal -q -i $wp
 
 # Reload apps using pywal colorschemes
 source ~/.dotfiles/scripts/waybar-startup.sh

@@ -26,6 +26,8 @@ tooltip {
     background: @color1;
     color: @color2;
     border-radius: 9px;
+    /* padding-top: 5px; */
+    /* padding-bottom: 5px; */
     padding-left: 24px;
     padding-right: 24px;
     margin-left: 3px;
