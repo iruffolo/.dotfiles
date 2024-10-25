@@ -18,6 +18,7 @@
 
 # TODO
 
+- [ ] Screenshot tools 
 - [ ] Swaync notification config 
 - [ ] mpd with waybar 
 
