@@ -77,8 +77,8 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " ;({signalStrength}%)",
-        "format-ethernet": " : {ipaddr}/{cidr}",
+        "format-wifi": " :({signalStrength}%)",
+        "format-ethernet": "",
         "format-linked": "Linked (No IP)",
         "format-disconnected": "✈ Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
