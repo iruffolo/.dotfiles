@@ -2,8 +2,8 @@
     // General Position Settings
     "layer": "top",
     "position": "top",
-    "height": 36,
-    "width": 1400,
+    "height": 40,
+    "width": 1200,
     "margin": "3, 0, 2, 0",
 
     // Load modules from another file
@@ -15,9 +15,8 @@
         "custom/l_end",
         "custom/applauncher",
         "custom/separator",
-        "group/hardware",
+        "hyprland/workspaces",
         "custom/separator",
-        "idle_inhibitor",
         "custom/r_end",
         "custom/padd"
         ],
@@ -25,8 +24,7 @@
     "modules-center": [
         "custom/padd",
         "custom/l_end",
-        "hyprland/workspaces",
-        "mpd",
+        "clock",
         "custom/r_end",
         "custom/padd"
         ],
@@ -35,15 +33,17 @@
         // "idle_inhibitor",
         "custom/padd",
         "custom/l_end",
+        "idle_inhibitor",
+        "custom/separator",
         "custom/waypaper",
         "custom/separator",
         "custom/keymapp",
         "custom/separator",
         "network", 
         "custom/separator",
-        "pulseaudio",
+        "mpd",
         "custom/separator",
-        "clock",
+        "pulseaudio",
         "custom/separator",
         "custom/exit",
         "custom/r_end",

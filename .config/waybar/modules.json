@@ -28,7 +28,7 @@
         "tooltip": true,
         "tooltip-format": "Waypaper"
     },
-    "custom/ybarapplauncher": {
+    "custom/applauncher": {
         "format": "Apps",
         "on-click": "bash ~/.dotfiles/scripts/wofi-startup.sh mocha",
         "tooltip": true,
@@ -52,8 +52,8 @@
     "clock": {
         "interval": 1,
         "locale": "C", 
-        "format": " {:%I:%M %p}",
-        "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
+        "format": "  {:%I:%M %p}",
+        "format-alt": " {:%a,%b %d}", // Icon: calendar-alt
     },
     "cpu": {
         "format": " : {usage}%",
