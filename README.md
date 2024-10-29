@@ -15,10 +15,10 @@
 - hyprpaper
 - hypridle
 - hyprlock
+- hyprshot
 
 # TODO
 
-- [ ] Screenshot tools 
 - [ ] Swaync notification config 
 - [ ] mpd with waybar 
 
