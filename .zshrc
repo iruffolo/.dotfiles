@@ -130,7 +130,7 @@ alias hyprcfg="nvim ~/.config/hypr/hyprland.conf"
 
 alias vim="nvim"
 alias pacman="sudo pacman"
-alias systemctl="sudo systemctl"
+# alias systemctl="sudo systemctl"
 
 alias ip='ip --color=auto'
 
