@@ -1,0 +1,5 @@
+background {
+    monitor =
+    path = /home/ian/Pictures/backgrounds/UltraWideWallpaper15.jpeg
+    color = rgba(25, 20, 20, 1.0)
+}

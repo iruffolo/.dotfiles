@@ -56,7 +56,7 @@ require('lazy').setup({
 
   'ThePrimeagen/vim-be-good',
   'aklt/plantuml-syntax',
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
   'nvim-tree/nvim-web-devicons',
 }, {
   ui = {
