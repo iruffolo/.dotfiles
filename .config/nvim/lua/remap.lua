@@ -1,7 +1,7 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
-vim.keymap.set('n', '<leader>rw', vim.cmd.Ex)
+-- vim.keymap.set('n', '<leader>rw', vim.cmd.Ex)
 
 -- Move highlighted lines up/down
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
