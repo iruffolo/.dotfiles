@@ -37,7 +37,6 @@ require('lazy').setup({
   require 'plugins.kickstart.telescope',
   require 'plugins.kickstart.lsp',
   require 'plugins.kickstart.conform',
-  require 'plugins.kickstart.cmp',
   require 'plugins.kickstart.colorscheme',
   require 'plugins.kickstart.todo_comments',
   require 'plugins.kickstart.mini',
@@ -54,6 +53,7 @@ require('lazy').setup({
   require 'plugins.custom.tmuxnav',
   -- require 'plugins.custom.precognition',
   require 'plugins.custom.oil',
+  require 'plugins.custom.blinkcmp',
 
   'ThePrimeagen/vim-be-good',
   'aklt/plantuml-syntax',
