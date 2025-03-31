@@ -3,35 +3,14 @@
     "layer": "top",
     "position": "top",
     "height": 40,
-    "width": 1200,
-    "margin": "3, 0, 2, 0",
+    "width": 700,
+    "margin": "0, 0, 0, 0",
 
     // Load modules from another file
     "include" : ["~/.config/waybar/modules.json"],
 
     // Choose the order of the modules
     "modules-left": [
-        "custom/padd",
-        "custom/l_end",
-        "custom/applauncher",
-        "custom/separator",
-        "hyprland/workspaces",
-        "custom/separator",
-        "custom/r_end",
-        "custom/padd"
-        ],
-
-    "modules-center": [
-        "custom/padd",
-        "custom/l_end",
-        "clock",
-        "custom/r_end",
-        "custom/padd"
-        ],
-
-    "modules-right": [
-        // "idle_inhibitor",
-        "custom/padd",
         "custom/l_end",
         "idle_inhibitor",
         "custom/separator",
@@ -40,9 +19,23 @@
         "custom/keymapp",
         "custom/separator",
         "network", 
+        "custom/r_end",
+        "custom/padd"
+        ],
+
+    "modules-center": [
+        "custom/l_end",
+        "hyprland/workspaces",
         "custom/separator",
-        "mpd",
-        "custom/separator",
+        "custom/padd",
+        "clock",
+        "custom/r_end",
+        "custom/padd"
+        ],
+
+    "modules-right": [
+        // "idle_inhibitor",
+        "custom/l_end",
         "pulseaudio",
         "custom/separator",
         "custom/exit",
