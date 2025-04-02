@@ -1,0 +1,2 @@
+timeout 60 'swaylock -f'
+timeout 180 'wlr-randr --output DP-1 --off' resume 'wlr-randr --output DP-1 --on'
