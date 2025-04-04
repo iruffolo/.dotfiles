@@ -27,6 +27,7 @@
 import os
 import subprocess
 
+from custom.ultrawide_layout import UltraWide
 from libqtile import bar, hook, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -39,7 +40,14 @@ mod = "mod4"
 terminal = "kitty"
 firefox = "firefox"
 rofi = "rofi -show run"
+lock = "swaylock -f"
 
+home = os.path.expanduser("~")
+
+# @hook.subscribe.client_new
+# def set_opacity(window):
+#     if window.match(Match(wm_class=terminal)):
+#         window.opacity = 0.95
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -87,8 +95,9 @@ keys = [
     ),
     # Launch programs
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "f", lazy.spawn(firefox), desc="Launch terminal"),
-    Key([mod], "s", lazy.spawn(rofi), desc="Launch terminal"),
+    Key([mod], "f", lazy.spawn(firefox), desc="Launch firefox"),
+    Key([mod], "s", lazy.spawn(rofi), desc="Launch rofi"),
+    # Key([mod], "l", lazy.spawn(lock), desc="Launch lock screen (swaylock)"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
@@ -154,14 +163,15 @@ for i in groups:
 layouts = [
     layout.MonadThreeCol(
         border_focus="#19E0C8",
-        margin=10,
-        ratio=0.5,
+        margin=[5, 10, 5, 10],
+        ratio=0.45,
         main_centered=True,
         border_width=3,
     ),
     # Try more layouts by unleashing below layouts.
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.Max(),
+    # UltraWide(),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
@@ -189,7 +199,8 @@ screens = [
             [
                 # widget.CurrentLayout(),
                 widget.GroupBox(),
-                # widget.WindowName(),
+                widget.Prompt(),
+                widget.WindowName(),
                 widget.Spacer(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.Spacer(),
@@ -197,19 +208,20 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Net(),
+                widget.Volume(volume_app="pavucontrol"),
                 # widget.QuickExit(),
             ],
             24,
             # background="#00000000",
             opacity=0.6,
-            border_width=[1, 1, 1, 1],  # Draw top and bottom borders
-            border_color=[
-                "ff00ff",
-                "ff00ff",
-                "ff00ff",
-                "ff00ff",
-            ],  # Borders are magenta
-            margin=[5, 1300, 5, 1300],
+            # border_width=[1, 1, 1, 1],  # Draw top and bottom borders
+            # border_color=[
+            #     "ff00ff",
+            #     "ff00ff",
+            #     "ff00ff",
+            #     "ff00ff",
+            # ],  # Borders are magenta
+            margin=[2, 1300, 0, 1300],
         ),
         # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
         # By default we handle these events delayed to already improve performance, however your system might still be struggling
@@ -278,5 +290,9 @@ wmname = "LG3D"
 
 @hook.subscribe.startup_once
 def autostart_once():
-    home = os.path.expanduser("~")
-    subprocess.run([home + "/.config/qtile/scripts/autostart.sh"])
+    subprocess.run(home + "/.config/qtile/scripts/autostart.sh")
+
+
+# @hook.subscribe.startup_complete
+# def lock_on_startup():
+#     subprocess.run(home + "/.config/qtile/scripts/lockscreen.sh")
