@@ -1,2 +1,3 @@
-timeout 60 'swaylock -f'
-timeout 180 'wlr-randr --output DP-1 --off' resume 'wlr-randr --output DP-1 --on'
+timeout 180 'swaylock -f -c 000000'
+timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+before-sleep 'swaylock -f -c 000000'

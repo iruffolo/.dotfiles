@@ -16,25 +16,39 @@ window#waybar {
 }
 
 tooltip {
-    background: @main-bg;
+    background: rgba(1,1,1,1);
     color: @main-fg;
-    border-radius: 7px;
+    border-radius: 10px;
     border-width: 0px;
 }
 
-#workspaces button.active {
+
+#workspaces button {
     background: @color1;
     color: @color2;
     border-radius: 9px;
-    /* padding-top: 5px; */
-    /* padding-bottom: 5px; */
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-left: 3px;
     margin-right: 3px;
     animation: ws_active 20s ease-in-out 1;
     transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
 }
+
+#workspaces button.focused {
+    background: @color2;
+    color: @color3;
+    border-radius: 9px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+    animation: ws_active 20s ease-in-out 1;
+    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
 
 #workspaces button:hover {
     background: @color3;
@@ -49,9 +63,9 @@ tooltip {
     text-shadow: none;
     padding: 0px;
     border-radius: 9px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    margin-left: 0px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    margin-left: 2px;
     padding-left: 3px;
     padding-right: 3px;
     margin-right: 0px;
@@ -94,7 +108,6 @@ tooltip {
 #memory,
 #idle_inhibitor,
 #bluetooth,
-#clock,
 #mpris,
 #network,
 #pulseaudio,
@@ -103,6 +116,7 @@ tooltip {
 #taskbar,
 #tray,
 #window,
+#clock,
 #mpd,
 #workspaces,
 #custom-l_end,
@@ -110,7 +124,7 @@ tooltip {
     background: @background;
     color: @foreground;
     opacity: 1;
-    margin: 4px 0px 4px 0px;
+    margin: 8px 0px 2px 0px;
     padding-left: 4px;
     padding-right: 4px;
 }
