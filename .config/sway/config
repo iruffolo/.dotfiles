@@ -20,11 +20,12 @@ set $term kitty
 set $menu wofi
 set $browser firefox
 set $lock swaylock
+set $files nautilus
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/ian/Pictures/backgrounds/UltraWideWallpaper8.jpg fill
+output * bg /home/ian/Pictures/backgrounds/UltraWideWallpaper5.jpg fill
 
 ### Run commands at starup
 exec  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
@@ -75,10 +76,13 @@ exec $lock
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+s exec $menu
 
     # Start firefox
     bindsym $mod+f exec $browser
+
+    # Start file browser
+    bindsym $mod+e exec $files
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -153,6 +157,7 @@ exec $lock
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
+    # DISABLED - Never want to use this
     # bindsym $mod+s layout stacking
     # bindsym $mod+w layout tabbed
     # bindsym $mod+e layout toggle split

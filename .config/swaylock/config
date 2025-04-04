@@ -1,10 +1,12 @@
-image=/home/ian/Pictures/backgrounds/UltraWideWallpaper8.jpg
+image=/home/ian/Pictures/backgrounds/UltraWideWallpaper5.jpg
 indicator
 ignore-empty-password
 indicator-radius=100
 indicator-thickness=15
 indicator-y-position=540
 clock
+timestr=%-I:%M %p
+datestr=%a, %B %e
 effect-blur=3x5
 font=FantasqueSansM Nerd Font Propo
 font-size=40
