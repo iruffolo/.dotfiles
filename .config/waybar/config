@@ -15,12 +15,6 @@
         "sway/workspaces",
         "custom/separator",
         "idle_inhibitor",
-        "custom/separator",
-        "custom/waypaper",
-        "custom/separator",
-        "custom/keymapp",
-        "custom/separator",
-        "network", 
         "custom/r_end",
         "custom/padd"
         ],
@@ -35,8 +29,13 @@
         ],
 
     "modules-right": [
-        // "idle_inhibitor",
         "custom/l_end",
+        "custom/waypaper",
+        "custom/separator",
+        "custom/keymapp",
+        "custom/separator",
+        "network", 
+        "custom/separator",
         "pulseaudio",
         "custom/separator",
         "custom/exit",

@@ -1,4 +1,4 @@
-image=~/Pictures/backgrounds/UltraWideWallpaper8.jpg
+image=/home/ian/Pictures/backgrounds/UltraWideWallpaper8.jpg
 indicator
 ignore-empty-password
 indicator-radius=100

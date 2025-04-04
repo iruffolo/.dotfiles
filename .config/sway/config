@@ -24,11 +24,10 @@ set $lock swaylock
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/ian/Pictures/backgrounds/UltraWideWallpaper9.jpg fill
-
+output * bg /home/ian/Pictures/backgrounds/UltraWideWallpaper8.jpg fill
 
 ### Run commands at starup
-exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 
 #
 # Example configuration:
@@ -96,6 +95,13 @@ exec $lock
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # Take screenshot - select area
+    bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
+
+    # Capture all screens to clipboard    
+    bindsym $mod+Shift+p exec grim - | wl-copy
+
 #
 # Moving around:
 #
@@ -147,9 +153,9 @@ exec $lock
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    # bindsym $mod+s layout stacking
+    # bindsym $mod+w layout tabbed
+    # bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     # bindsym $mod+f fullscreen
