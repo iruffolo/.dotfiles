@@ -49,6 +49,7 @@ default_border pixel 2
 ### Idle configuration
 #
 exec swayidle -w 
+exec swaync
 exec $lock 
 
 ### Input configuration
@@ -64,6 +65,7 @@ exec $lock
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+input type:keyboard xkb_numlock enabled
 
 ### Key bindings
 #
@@ -105,6 +107,9 @@ exec $lock
 
     # Capture all screens to clipboard    
     bindsym $mod+Shift+p exec grim - | wl-copy
+
+    # Toggle swaync control center
+    bindsym $mod+Shift+n exec swaync-client -t -sw
 
 #
 # Moving around:
