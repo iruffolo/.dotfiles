@@ -39,7 +39,7 @@ output DP-1 resolution 3840x1080 position 1920,0
 
 # Layout 
 smart_gaps inverse_outer
-gaps horizontal 820
+gaps horizontal 980
 gaps inner 6 
 # gaps outer 2 
 
