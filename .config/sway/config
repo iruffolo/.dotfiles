@@ -25,7 +25,7 @@ set $files nautilus
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/ian/Pictures/backgrounds/UltraWideWallpaper5.jpg fill
+output * bg /home/ian/Downloads/Backgrounds/johannes-plenio-hvrpOmuMrAI-unsplash.jpg fill
 
 ### Run commands at starup
 exec  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
@@ -38,8 +38,8 @@ exec  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_D
 output DP-1 resolution 3840x1080 position 1920,0
 
 # Layout 
-smart_gaps inverse_outer
-gaps horizontal 980
+# smart_gaps inverse_outer
+# gaps horizontal 980
 gaps inner 6 
 # gaps outer 2 
 
@@ -66,6 +66,13 @@ exec $lock
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 input type:keyboard xkb_numlock enabled
+
+input "2:14:ETPS/2_Elantech_Touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
 
 ### Key bindings
 #
