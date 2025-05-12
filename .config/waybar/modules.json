@@ -54,8 +54,8 @@
         "interval": 1,
         "locale": "C", 
         // "format": "  {:%I:%M %p}",
-        "format": "{:%I:%M %p}",
-        "format-alt": " {:%a,%b %d}", // Icon: calendar-alt
+        "format": "{:%a, %b %d | %I:%M %p}",
+        "format-alt": " {:%a, %b %d}", // Icon: calendar-alt
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "year",
