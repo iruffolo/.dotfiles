@@ -25,7 +25,7 @@ set $files nautilus
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/ian/Downloads/Backgrounds/johannes-plenio-hvrpOmuMrAI-unsplash.jpg fill
+output * bg /home/ian/Pictures/backgrounds/sean-oulashin-KMn4VEeEPR8-unsplash.jpg fill
 
 ### Run commands at starup
 exec  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
