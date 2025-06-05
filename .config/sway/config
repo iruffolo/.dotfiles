@@ -22,6 +22,9 @@ set $browser firefox
 set $lock swaylock
 set $files nautilus
 
+set $upscale swaymsg output DP-1 scale 1.3
+set $downscale swaymsg output DP-1 scale 1
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -33,9 +36,9 @@ exec  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_D
 #
 # Example configuration:
 
-# output DP-1 resolution 5120x1440 position 1920,0
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output DP-1 resolution 3840x1080 position 1920,0
+# output DP-1 resolution 3840x1080 position 0,0
+output DP-1 resolution 5120x1440@240Hz scale 1.3
 
 # Layout 
 smart_gaps inverse_outer
@@ -111,6 +114,9 @@ input type:keyboard xkb_numlock enabled
     # Toggle swaync control center
     bindsym $mod+Shift+n exec swaync-client -t -sw
 
+    bindsym $mod+Shift+u exec $upscale 
+    bindsym $mod+Shift+d exec $downscale 
+
 #
 # Moving around:
 #
@@ -139,7 +145,7 @@ input type:keyboard xkb_numlock enabled
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace number 1
+    bindsym $mod+1 workspace number 1 
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3
     bindsym $mod+4 workspace number 4
@@ -168,7 +174,7 @@ input type:keyboard xkb_numlock enabled
     # bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    # bindsym $mod+f fullscreen
+    bindsym $mod+Shift+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
@@ -249,6 +255,11 @@ bar {
     swaybar_command waybar
 }
 
+
+#Window Rules
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable, resize set width 1030 height 710
+# for_window [app_id="nautilus"] floating enable, move position centered, resize set 950 px 650 px
+# for_window [app_id="nautilus"] move to scratchpad, scratchpad show 
 
 # Colors
 client.focused "#19E0C8" "#19E0C8" "#000000"

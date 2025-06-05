@@ -17,7 +17,8 @@ export SYSTEMD_EDITOR=nvim
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # Update color scheme from wallpaper (pywal)
 (cat ~/.cache/wal/sequences &) 
@@ -95,9 +96,8 @@ plugins=(archlinux
   zsh-autosuggestions
   zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
+source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -137,4 +137,4 @@ alias ip='ip --color=auto'
 eval "$(direnv hook zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
