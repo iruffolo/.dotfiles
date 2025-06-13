@@ -12,7 +12,7 @@
     // Choose the order of the modules
     "modules-left": [
         "custom/l_end",
-        "sway/workspaces",
+        "hyprland/workspaces",
         "custom/separator",
         "idle_inhibitor",
         "custom/r_end",

@@ -43,7 +43,7 @@
     },
     "custom/exit": {
         "format": "  ",
-        "on-click": "bash ~/.dotfiles/scripts/wlogout.sh",
+        "on-click": "bash ~/.dotfiles/scripts/wlogout-hypr.sh",
         "tooltip-format": "Power Menu"
     },
     "tray": {

@@ -28,7 +28,7 @@ set $downscale swaymsg output DP-1 scale 1
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/ian/Pictures/backgrounds/UltraWideWallpaper5.jpg fill
+output * bg  fill
 
 ### Run commands at starup
 exec  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway

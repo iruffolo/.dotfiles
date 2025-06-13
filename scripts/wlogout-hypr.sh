@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Target top and bottom placements
-T_1080=100
+T_1080=300
 B_1080=300
 L_1080=800
 R_1080=800
