@@ -38,6 +38,8 @@
         "custom/separator",
         "pulseaudio",
         "custom/separator",
+        "battery",
+        "custom/separator",
         "custom/exit",
         "custom/r_end",
         "custom/padd"

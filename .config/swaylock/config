@@ -1,15 +1,15 @@
-image=/home/ian/Pictures/backgrounds/ultrawide1.jpeg
+image=/home/ian/Pictures/backgrounds/johannes-plenio-hvrpOmuMrAI-unsplash.jpg
 indicator
 ignore-empty-password
-indicator-radius=100
-indicator-thickness=15
-indicator-y-position=540
+indicator-radius=120
+indicator-thickness=12
+indicator-y-position=500
 clock
 timestr=%-I:%M %p
 datestr=%a, %B %e
 effect-blur=3x5
 font=FantasqueSansM Nerd Font Propo
-font-size=80
+font-size=45
 scaling=fill
 bs-hl-color=ffa066
 caps-lock-bs-hl-color=ffa066

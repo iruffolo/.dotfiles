@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Target top and bottom placements
-T_1080=300
-B_1080=300
-L_1080=800
-R_1080=800
+T_1080=200
+B_1080=200
+L_1080=200
+R_1080=200
 
 # Check if wlogout is already running
 if pgrep -x "wlogout" > /dev/null; then

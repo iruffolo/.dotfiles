@@ -83,6 +83,20 @@
         "critical": 90,
         "on-click": "kitty -e 'htop'"
     },
+    "battery": {
+        "format": "{capacity}% - {time}",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": " <span>{icon}</span>   {capacity}% - {time}",
+        "format-full": " <span>{icon}</span>   Charged",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false,
+        "on-click": "2"
+    },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
