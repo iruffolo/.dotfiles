@@ -48,16 +48,14 @@ require('lazy').setup({
   require 'plugins.custom.harpoon',
   require 'plugins.custom.lualine',
   require 'plugins.custom.markdownpreview',
-  -- require 'plugins.custom.noice',
   require 'plugins.custom.trouble',
   require 'plugins.custom.tmuxnav',
-  -- require 'plugins.custom.precognition',
   require 'plugins.custom.oil',
   require 'plugins.custom.blinkcmp',
+  require 'plugins.custom.claudecode',
 
   'ThePrimeagen/vim-be-good',
   'aklt/plantuml-syntax',
-  -- 'github/copilot.vim',
   'nvim-tree/nvim-web-devicons',
 }, {
   ui = {
