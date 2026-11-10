@@ -26,7 +26,14 @@ shift $((OPTIND - 1))
 CONFIG="$(realpath "$1")"
 LIVE="$HOME/.config/hypr/hyprland.lua"
 TMP="$(mktemp -d)"
-trap 'rm -rf "$TMP"' EXIT
+pid=""
+# Always close the nested instance and clean up, even on Ctrl+C or a closed pipe.
+cleanup() {
+	[ -n "$pid" ] && kill "$pid" 2>/dev/null && wait "$pid" 2>/dev/null
+	rm -rf "$TMP"
+}
+trap cleanup EXIT
+trap 'exit 130' INT TERM PIPE
 FAILED=0
 
 # Harness: wraps the config under test with the safety stubs above.
