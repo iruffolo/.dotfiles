@@ -2,7 +2,11 @@ return {
   'coder/claudecode.nvim',
   dependencies = { 'folke/snacks.nvim' },
   opts = {
+    -- Claude wraps its clipboard escape sequence for tmux passthrough when $TMUX is set; nvim's terminal
+    -- doesn't understand that wrapper and prints it as garbage. Start Claude without the tmux variables.
+    terminal_cmd = 'env -u TMUX -u TMUX_PANE claude',
     terminal = {
+      split_width_percentage = 0.4,
       snacks_win_opts = {
         keys = {
           -- Jump from the Claude terminal back to the previous (code) window
@@ -13,7 +17,10 @@ return {
               local cur = vim.api.nvim_get_current_win()
               local prev = vim.fn.win_getid(vim.fn.winnr '#')
               local function usable(w)
-                return w ~= cur and vim.api.nvim_win_is_valid(w) and vim.api.nvim_win_get_config(w).relative == '' and vim.bo[vim.api.nvim_win_get_buf(w)].buftype ~= 'terminal'
+                return w ~= cur
+                  and vim.api.nvim_win_is_valid(w)
+                  and vim.api.nvim_win_get_config(w).relative == ''
+                  and vim.bo[vim.api.nvim_win_get_buf(w)].buftype ~= 'terminal'
               end
               if usable(prev) then
                 return vim.api.nvim_set_current_win(prev)
