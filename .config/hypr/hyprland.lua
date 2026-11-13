@@ -98,7 +98,6 @@ hl.config({
 		allow_small_split = true,
 		orientation = "center",
 		slave_count_for_center_master = 0,
-		special_scale_factor = 0.80,
 		mfact = 0.45,
 	},
 	misc = {
@@ -275,6 +274,11 @@ hl.window_rule({ name = "float-blueman", match = { class = "blueman-manager" }, 
 hl.window_rule({ name = "slack-ws5", match = { class = "Slack" }, workspace = "5 silent" })
 hl.window_rule({ name = "signal-ws5", match = { class = "signal" }, workspace = "5 silent" })
 hl.window_rule({ name = "steam-ws4", match = { class = "steam" }, workspace = "4 silent" })
+
+-- Scratchpad (SUPER+W) at ~80% of the screen. Replaces the deprecated
+-- master.special_scale_factor = 0.80. Gaps are logical px, sized for the
+-- 1.25 desktop scale (4096x1152): 10% per side. At scale 1 it's ~84%.
+hl.workspace_rule({ workspace = "special:magic", gaps_out = { top = 115, right = 410, bottom = 115, left = 410 } })
 
 -- Ignore maximize requests from apps
 hl.window_rule({ name = "suppress-maximize", match = { class = ".*" }, suppress_event = "maximize" })
