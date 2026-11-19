@@ -6,20 +6,37 @@
 ---- MACHINE ----
 -----------------
 
--- One config for both machines. The desktop (ultrawide on DP-1, per-workspace
--- scaling, centered master layout) is picked by hostname; anything else gets
--- the laptop profile (preferred mode, dwindle, natural touchpad scroll).
-local function read_hostname()
-	local f = io.open("/etc/hostname")
+-- One config for both machines (both are named "iantron", so not by hostname).
+-- Laptop = firmware says portable chassis, or there is a battery. It gets the
+-- laptop profile (preferred mode, dwindle, natural touchpad scroll); otherwise
+-- the desktop one (ultrawide on DP-1, per-workspace scaling, centered master).
+local function read_line(path)
+	local f = io.open(path)
 	if not f then
-		return ""
+		return nil
 	end
-	local name = f:read("*l") or ""
+	local line = f:read("*l")
 	f:close()
-	return name
+	return line
 end
 
-local IS_DESKTOP = read_hostname() == "iantron"
+-- SMBIOS chassis types: 8 portable, 9 laptop, 10 notebook, 14 sub-notebook,
+-- 30 tablet, 31 convertible, 32 detachable. The desktop reports 3.
+local LAPTOP_CHASSIS = { ["8"] = true, ["9"] = true, ["10"] = true, ["14"] = true, ["30"] = true, ["31"] = true, ["32"] = true }
+
+local function is_laptop()
+	if LAPTOP_CHASSIS[read_line("/sys/class/dmi/id/chassis_type") or ""] then
+		return true
+	end
+	for _, bat in ipairs({ "BAT0", "BAT1", "BAT2" }) do
+		if read_line("/sys/class/power_supply/" .. bat .. "/type") then
+			return true
+		end
+	end
+	return false
+end
+
+local IS_DESKTOP = not is_laptop()
 
 ------------------
 ---- MONITORS ----

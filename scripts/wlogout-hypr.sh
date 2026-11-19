@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
 # Target top/bottom/left/right margins (physical px), per machine
-if [ "$(cat /etc/hostname)" = "iantron" ]; then
-    T_1080=300; B_1080=300; L_1080=800; R_1080=800 # desktop ultrawide
-else
+# (laptop = portable chassis type or a battery; same check as hyprland.lua)
+case "$(cat /sys/class/dmi/id/chassis_type 2>/dev/null)" in
+    8|9|10|14|30|31|32) laptop=1 ;;
+    *) ls /sys/class/power_supply/BAT* >/dev/null 2>&1 && laptop=1 || laptop=0 ;;
+esac
+if [ "$laptop" = 1 ]; then
     T_1080=200; B_1080=200; L_1080=200; R_1080=200 # laptop
+else
+    T_1080=300; B_1080=300; L_1080=800; R_1080=800 # desktop ultrawide
 fi
 
 # Check if wlogout is already running
