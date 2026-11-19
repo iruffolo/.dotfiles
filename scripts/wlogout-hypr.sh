@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-# Target top and bottom placements
-T_1080=300
-B_1080=300
-L_1080=800
-R_1080=800
+# Target top/bottom/left/right margins (physical px), per machine
+if [ "$(cat /etc/hostname)" = "iantron" ]; then
+    T_1080=300; B_1080=300; L_1080=800; R_1080=800 # desktop ultrawide
+else
+    T_1080=200; B_1080=200; L_1080=200; R_1080=200 # laptop
+fi
 
 # Check if wlogout is already running
 if pgrep -x "wlogout" > /dev/null; then

@@ -102,12 +102,14 @@ tooltip {
 }
 
 #custom-separator,
+#custom-battery-sep,
 #custom-applauncher,
 #custom-keymapp,
 #custom-waypaper,
 #temperature,
 #cpu,
 #memory,
+#battery,
 #idle_inhibitor,
 #bluetooth,
 #mpris,
@@ -139,7 +141,8 @@ tooltip {
     color: @color1;
 }
 
-#custom-separator {
+#custom-separator,
+#custom-battery-sep {
     color: @color2;
 }
 

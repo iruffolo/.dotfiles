@@ -2,6 +2,25 @@
 -- Wiki: https://wiki.hypr.land/configuring/
 -- API stubs: /usr/share/hypr/stubs/hl.meta.lua
 
+-----------------
+---- MACHINE ----
+-----------------
+
+-- One config for both machines. The desktop (ultrawide on DP-1, per-workspace
+-- scaling, centered master layout) is picked by hostname; anything else gets
+-- the laptop profile (preferred mode, dwindle, natural touchpad scroll).
+local function read_hostname()
+	local f = io.open("/etc/hostname")
+	if not f then
+		return ""
+	end
+	local name = f:read("*l") or ""
+	f:close()
+	return name
+end
+
+local IS_DESKTOP = read_hostname() == "iantron"
+
 ------------------
 ---- MONITORS ----
 ------------------
@@ -11,7 +30,11 @@ local MODE = "5120x1440@240"
 local SCALE_DESKTOP = 1.25
 local SCALE_NATIVE = 1
 
-hl.monitor({ output = MONITOR, mode = MODE, position = "auto", scale = SCALE_DESKTOP })
+if IS_DESKTOP then
+	hl.monitor({ output = MONITOR, mode = MODE, position = "auto", scale = SCALE_DESKTOP })
+else
+	hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+end
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -73,7 +96,7 @@ hl.config({
 		},
 		resize_on_border = false,
 		allow_tearing = false,
-		layout = "master",
+		layout = IS_DESKTOP and "master" or "dwindle",
 	},
 	decoration = {
 		rounding = 10,
@@ -91,6 +114,7 @@ hl.config({
 	},
 	dwindle = {
 		preserve_split = true,
+		force_split = IS_DESKTOP and 0 or 2, -- laptop: new windows always split right/bottom
 	},
 	master = {
 		new_status = "slave",
@@ -115,7 +139,7 @@ hl.config({
 		numlock_by_default = true,
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 		touchpad = {
-			natural_scroll = false,
+			natural_scroll = not IS_DESKTOP,
 		},
 	},
 	debug = {
@@ -176,19 +200,21 @@ local function apply_workspace(id)
 	end
 end
 
--- Runs every time the active workspace changes; ws is the new workspace.
-hl.on("workspace.active", function(ws)
-	apply_workspace(ws.id)
-end)
-
--- Saving this file reloads it, which re-runs hl.monitor() at the top with the
--- desktop scale. Re-apply the current workspace's profile afterwards.
-hl.on("config.reloaded", function()
-	local ws = hl.get_active_workspace()
-	if ws then
+if IS_DESKTOP then
+	-- Runs every time the active workspace changes; ws is the new workspace.
+	hl.on("workspace.active", function(ws)
 		apply_workspace(ws.id)
-	end
-end)
+	end)
+
+	-- Saving this file reloads it, which re-runs hl.monitor() at the top with the
+	-- desktop scale. Re-apply the current workspace's profile afterwards.
+	hl.on("config.reloaded", function()
+		local ws = hl.get_active_workspace()
+		if ws then
+			apply_workspace(ws.id)
+		end
+	end)
+end
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -222,23 +248,25 @@ hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 
--- Workspaces 1-5: plain switch / move binds. Scale + waybar are handled by
--- the workspace.active hook above, so they apply however you get there
+-- Workspaces 1-5: plain switch / move binds. On the desktop, scale + waybar
+-- are handled by the workspace.active hook above, so they apply however you get there
 -- (keybind, mouse scroll, a window rule, hyprctl, ...).
 for ws = 1, 5 do
 	hl.bind(mainMod .. " + " .. ws, hl.dsp.focus({ workspace = ws }))
 	hl.bind(mainMod .. " + SHIFT + " .. ws, hl.dsp.window.move({ workspace = ws }))
 end
 
--- Manual scale override
-hl.bind(mainMod .. " + 6", function()
-	set_scale(SCALE_DESKTOP)
-	hl.exec_cmd(refreshwp)
-end)
-hl.bind(mainMod .. " + 7", function()
-	set_scale(SCALE_NATIVE)
-	hl.exec_cmd(refreshwp)
-end)
+-- Manual scale override (desktop only)
+if IS_DESKTOP then
+	hl.bind(mainMod .. " + 6", function()
+		set_scale(SCALE_DESKTOP)
+		hl.exec_cmd(refreshwp)
+	end)
+	hl.bind(mainMod .. " + 7", function()
+		set_scale(SCALE_NATIVE)
+		hl.exec_cmd(refreshwp)
+	end)
+end
 
 hl.bind(mainMod .. " + W", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:magic" }))
@@ -278,7 +306,10 @@ hl.window_rule({ name = "steam-ws4", match = { class = "steam" }, workspace = "4
 -- Scratchpad (SUPER+W) at ~80% of the screen. Replaces the deprecated
 -- master.special_scale_factor = 0.80. Gaps are logical px, sized for the
 -- 1.25 desktop scale (4096x1152): 10% per side. At scale 1 it's ~84%.
-hl.workspace_rule({ workspace = "special:magic", gaps_out = { top = 115, right = 410, bottom = 115, left = 410 } })
+-- Desktop only; on the laptop the scratchpad stays full size.
+if IS_DESKTOP then
+	hl.workspace_rule({ workspace = "special:magic", gaps_out = { top = 115, right = 410, bottom = 115, left = 410 } })
+end
 
 -- Ignore maximize requests from apps
 hl.window_rule({ name = "suppress-maximize", match = { class = ".*" }, suppress_event = "maximize" })

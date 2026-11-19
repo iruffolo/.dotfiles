@@ -19,5 +19,7 @@ sed -i "s#/home/ian/Pictures/backgrounds/.*#$wp#g" ~/.dotfiles/.config/swaylock/
 # preload the new image, assign it, THEN unload the old one —
 # this way there's no gap where nothing is loaded
 hyprctl hyprpaper preload "$wp"
-hyprctl hyprpaper wallpaper "DP-1,$wp"
+for mon in $(hyprctl monitors -j | jq -r '.[].name'); do
+    hyprctl hyprpaper wallpaper "$mon,$wp"
+done
 hyprctl hyprpaper unload unused
