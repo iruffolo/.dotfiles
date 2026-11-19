@@ -1,183 +1,110 @@
-* {
-    border: none;
-    border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
-    font-size: 14px;
-    min-height: 10px;
-}
-
-/* No relative path because this can be called from another script */
+/* Floating-pill waybar. Colors come from pywal (follows the wallpaper);
+   @color5 is the single accent. No relative path: this can be loaded from scripts. */
 @import "/home/ian/.cache/wal/colors-waybar.css";
 
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font", "MesloLGS NF", "Font Awesome 7 Free", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
 window#waybar {
-    /* Transparent background bar for floating modules */
-    background: rgba(0, 0, 0, 0);
+    background: transparent;
+    color: @foreground;
 }
 
 tooltip {
-    background: rgba(1,1,1,1);
-    color: @main-fg;
+    background: @background;
+    border: 1px solid alpha(@foreground, 0.15);
     border-radius: 10px;
-    border-width: 0px;
+}
+tooltip label {
+    color: @foreground;
 }
 
-
-#workspaces button {
-    background: @color1;
-    color: @color2;
-    border-radius: 9px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    margin-left: 3px;
-    margin-right: 3px;
-    animation: ws_active 20s ease-in-out 1;
-    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+/* ---- The three pills ---- */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: alpha(@background, 0.85);
+    border: 1px solid alpha(@foreground, 0.08);
+    border-radius: 12px;
+    padding: 0 4px;
 }
 
-#workspaces button.focused {
-    background: @color2;
-    color: @color3;
-    border-radius: 9px;
-    padding-left: 18px;
-    padding-right: 18px;
-    margin-left: 3px;
-    margin-right: 3px;
-    animation: ws_active 20s ease-in-out 1;
-    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-
-#workspaces button:hover {
-    background: @color3;
-    color: @color4;
-    border-radius: 9px;
-    animation: ws_hover 20s ease-in-out 1;
-    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#taskbar button {
-    box-shadow: none;
-    text-shadow: none;
-    padding: 0px;
-    border-radius: 9px;
-    margin-top: 2px;
-    margin-bottom: 0px;
-    margin-left: 2px;
-    padding-left: 3px;
-    padding-right: 3px;
-    margin-right: 0px;
-    color: @color2;
-    animation: tb_normal 20s ease-in-out 1;
-}
-
-#taskbar button.active {
-    background: @wb-act-bg;
-    color: @wb-act-color;
-    margin-left: 3px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-right: 3px;
-    animation: tb_active 20s ease-in-out 1;
-    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#taskbar button:hover {
-    background: @wb-hvr-bg;
-    color: @wb-hvr-color;
-    animation: tb_hover 20s ease-in-out 1;
-    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#tray menu * {
-    min-height: 16px
-}
-
-#tray menu separator {
-    min-height: 10px
-}
-
-#custom-separator,
-#custom-battery-sep,
-#custom-applauncher,
-#custom-keymapp,
+/* ---- Modules: muted text, even spacing (no separators) ---- */
+#clock,
 #custom-waypaper,
-#temperature,
-#cpu,
-#memory,
-#battery,
-#idle_inhibitor,
-#bluetooth,
-#mpris,
+#custom-keymapp,
 #network,
 #pulseaudio,
-#custom-exit,
-#custom-spotify,
-#taskbar,
-#tray,
-#window,
-#clock,
-#mpd,
-#workspaces,
-#custom-l_end,
-#custom-r_end {
-    background: @background;
-    color: @foreground;
-    opacity: 1;
-    margin: 8px 0px 2px 0px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-
-/* Custom App Colors */
-#memory,
-#temperature,
-#cpu {
-    color: @color1;
-}
-
-#custom-separator,
-#custom-battery-sep {
-    color: @color2;
-}
-
-#network {
-    color: @color3;
-}
-
-#network.disconnected {
-    color: @color5;
-}
-
-#pulseaudio {
-    color: @color4;
-}
-#pulseaudio.muted {
-    color: @color5;
+#battery,
+#custom-exit {
+    color: alpha(@foreground, 0.8);
+    padding: 0 10px;
 }
 
 #clock {
-    color: @color6;
+    color: @foreground;
+    padding: 0 14px;
 }
 
-#workspaces,
-#taskbar {
-    padding: 0px;
+#custom-waypaper:hover,
+#custom-keymapp:hover,
+#pulseaudio:hover,
+#custom-exit:hover {
+    color: @color5;
 }
 
-#custom-r_end {
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 9px;
-    padding-right: 2px;
+/* ---- Workspaces ---- */
+#workspaces {
+    padding: 0;
 }
 
-#custom-l_end {
-    border-radius: 10px 0px 0px 10px;
-    margin-left: 9px;
-    padding-left: 2px;
+#workspaces button {
+    color: alpha(@foreground, 0.6);
+    background: transparent;
+    padding: 0 9px;
+    margin: 5px 2px;
+    border-radius: 8px;
+    box-shadow: none;
+    text-shadow: none;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.empty {
+    color: alpha(@foreground, 0.3);
+}
+
+#workspaces button:hover {
+    background: alpha(@foreground, 0.1);
+    color: @foreground;
+}
+
+#workspaces button.active {
+    background: @color5;
+    color: @background;
+    padding: 0 14px;
+}
+
+#workspaces button.urgent {
+    background: @color1;
+    color: @background;
+}
+
+/* ---- States ---- */
+#pulseaudio.muted,
+#network.disconnected,
+#battery.warning:not(.charging) {
+    color: @color1;
+}
+
+#battery.critical:not(.charging) {
+    color: @background;
+    background: @color1;
+    border-radius: 8px;
+    margin: 5px 0;
 }

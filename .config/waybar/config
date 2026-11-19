@@ -1,47 +1,23 @@
 {
-    // General Position Settings
+    // Fixed-width transparent bar, centered on screen (ultrawide); each module
+    // group is its own floating pill (styled via .modules-left/center/right).
     "layer": "top",
     "position": "top",
-    "height": 40,
+    "height": 34,
     "width": 1000,
-    "margin": "0, 0, 0, 0",
+    "margin-top": 8,
+    "spacing": 0,
 
-    // Load modules from another file
-    "include" : ["~/.config/waybar/modules.json"],
+    "include": ["~/.config/waybar/modules.json"],
 
-    // Choose the order of the modules
-    "modules-left": [
-        "custom/l_end",
-        "hyprland/workspaces",
-        "custom/separator",
-        "idle_inhibitor",
-        "custom/r_end",
-        "custom/padd"
-        ],
-
-    "modules-center": [
-        "custom/l_end",
-        "custom/separator",
-        "clock",
-        "custom/separator",
-        "custom/r_end",
-        "custom/padd"
-        ],
-
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
     "modules-right": [
-        "custom/l_end",
         "custom/waypaper",
-        "custom/separator",
         "custom/keymapp",
-        "custom/separator",
-        "network", 
-        "custom/separator",
+        "network",
         "pulseaudio",
-        "custom/separator",
         "battery",
-        "custom/battery-sep",
-        "custom/exit",
-        "custom/r_end",
-        "custom/padd"
+        "custom/exit"
     ]
 }
