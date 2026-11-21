@@ -58,7 +58,7 @@ end
 ---------------------
 
 local terminal = "kitty"
-local fileManager = "nautilus"
+local fileManager = "nautilus --new-window"
 local browser = "firefox"
 local menu = "bash ~/.dotfiles/scripts/wofi-startup.sh mocha"
 local waybar = "bash ~/.dotfiles/scripts/waybar-startup.sh"
